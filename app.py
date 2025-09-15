@@ -26,6 +26,7 @@ def predict_next_word(model, tokenizer, text, max_sequence_len):
             return word
     return None
 st.title("Word Prediction Project ")
+input_name = st.text_input('Enter your name  ')
 input_text  = st.text_input('Enter your text  ')
 
 print(f" Input Text is : {input_text}")
@@ -33,5 +34,7 @@ print(f" Input Text is : {input_text}")
 max_sequence_len = model.input_shape[1]+1
 
 next_word = predict_next_word(model,tokenizer,input_text,max_sequence_len)
+if input_name:
+    st.write(f"HI {input_name} ,if u want me to predict next word enter word or sentence")
 if input_text:
     st.success(f"Next Word Prediction: {next_word}")
